@@ -1,4 +1,4 @@
-service: my-store-app
+service: epam-course-app
 
 frameworkVersion: "3"
 
@@ -19,12 +19,9 @@ plugins:
 
 custom:
   client:
-    bucketName: my-store-app
+    bucketName: epam-course-app
     distributionFolder: dist
-  s3BucketName: ${self:custom.client.bucketName}
-
-  ## Serverless-single-page-app-plugin configuration:
-  s3LocalPath: ${self:custom.client.distributionFolder}/
+    indexDocument: index.html
   serverless-s3-cleaner:
     buckets:
       - ${self:custom.client.bucketName}
@@ -35,7 +32,7 @@ resources:
     WebAppS3Bucket:
       Type: AWS::S3::Bucket
       Properties:
-        BucketName: ${self:custom.s3BucketName}
+        BucketName: ${self:custom.client.bucketName}
         AccessControl: PublicRead
         WebsiteConfiguration:
           IndexDocument: index.html
@@ -54,7 +51,7 @@ resources:
             - Sid: "AllowCloudFrontAccessIdentity"
               Effect: Allow
               Action: s3:GetObject
-              Resource: arn:aws:s3:::${self:custom.s3BucketName}/*
+              Resource: arn:aws:s3:::${self:custom.client.bucketName}/*
               Principal:
                 AWS:
                   Fn::Join:
@@ -66,7 +63,7 @@ resources:
       Type: AWS::CloudFront::CloudFrontOriginAccessIdentity
       Properties:
         CloudFrontOriginAccessIdentityConfig:
-          Comment: Access identity between CloudFront and S3 bucket
+          Comment: Access identity between CloudFront and S3 bucket of epam-course-app
 
     ## Specifying the CloudFront Distribution to server your Web Application
     WebAppCloudFrontDistribution:

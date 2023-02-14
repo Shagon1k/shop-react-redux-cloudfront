@@ -1,3 +1,11 @@
+# Result
+## Manual Deployment
+S3 link: http://epam-course-app-manual.s3-website-eu-west-1.amazonaws.com/ (not available (403 Forbidden), use CF link)
+CloudFront link: https://d3nyran76rn4ea.cloudfront.net
+## Automated Deployment
+S3 link: http://epam-course-app.s3-website-eu-west-1.amazonaws.com/ (not available (403 Forbidden), use CF link)
+CloudFront link: https://d1mj47vtgwkrpw.cloudfront.net/
+
 # React-shop-cloudfront
 
 This is frontend starter project for nodejs-aws mentoring program. It uses the following technologies:
