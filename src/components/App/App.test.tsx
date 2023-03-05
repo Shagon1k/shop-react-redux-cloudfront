@@ -17,7 +17,7 @@ test("Renders products list", async () => {
       title: "Product 1",
       description: "Product 1 description",
       price: 1,
-      imgUrl: "img1",
+      img_url: "img1",
       count: 1,
     },
     {
@@ -25,7 +25,7 @@ test("Renders products list", async () => {
       title: "Product 2",
       description: "Product 2 description",
       price: 2,
-      imgUrl: "img2",
+      img_url: "img2",
       count: 2,
     },
   ];
