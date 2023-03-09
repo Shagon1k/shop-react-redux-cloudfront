@@ -25,7 +25,7 @@ export default function Products() {
           >
             <CardMedia
               sx={{ pt: "56.25%" }}
-              image={product.imgUrl}
+              image={product.img_url}
               title="Image title"
             />
             <CardContent sx={{ flexGrow: 1 }}>
