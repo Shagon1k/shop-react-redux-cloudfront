@@ -59,11 +59,13 @@ export default function PageCart() {
       return;
     }
     const values = {
-      items: data.map((i) => ({
-        productId: i.product.id,
-        count: i.count,
-      })),
-      address,
+      payment: {
+        address
+      },
+      delivery: {
+        address
+      },
+      comments: address.comment
     };
 
     submitOrder(values as Omit<Order, "id">, {
@@ -98,7 +100,7 @@ export default function PageCart() {
           </Step>
         ))}
       </Stepper>
-      {isCartEmpty && <CartIsEmpty />}
+      {isCartEmpty && activeStep === CartStep.ReviewCart && <CartIsEmpty />}
       {!isCartEmpty && activeStep === CartStep.ReviewCart && (
         <ReviewCart items={data} />
       )}
