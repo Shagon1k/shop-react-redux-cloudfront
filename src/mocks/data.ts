@@ -83,38 +83,67 @@ export const cart: CartItem[] = [
   },
 ];
 
+// id: Yup.string().required(),
+//   items: Yup.array().of(OrderItemSchema).defined(),
+//   payment: Yup.object({
+//     address: AddressSchema.required(),
+//   }),
+//   delivery: Yup.object({
+//     address: AddressSchema.required(),
+//   }),
+//   comments: Yup.string(),
+//   statusHistory: Yup.array().of(statusHistorySchema).defined(),
+
 export const orders: Order[] = [
   {
     id: "1",
-    address: {
-      address: "some address",
-      firstName: "Name",
-      lastName: "Surname",
-      comment: "",
-    },
     items: [
       { productId: "7567ec4b-b10c-48c5-9345-fc73c48a80aa", count: 2 },
       { productId: "7567ec4b-b10c-45c5-9345-fc73c48a80a1", count: 5 },
     ],
+    payment: {
+      address: {
+        address: "some address",
+        firstName: "Name",
+        lastName: "Surname",
+        comment: "",
+      },
+    },
+    delivery: {
+      address: {
+        address: "some address",
+        firstName: "Name",
+        lastName: "Surname",
+        comment: "",
+      },
+    },
+    comments: "",
     statusHistory: [
       { status: OrderStatus.Open, timestamp: Date.now(), comment: "New order" },
     ],
   },
   {
     id: "2",
-    address: {
-      address: "another address",
-      firstName: "John",
-      lastName: "Doe",
-      comment: "Ship fast!",
-    },
     items: [{ productId: "7567ec4b-b10c-48c5-9345-fc73c48a80aa", count: 3 }],
-    statusHistory: [
-      {
-        status: OrderStatus.Sent,
-        timestamp: Date.now(),
-        comment: "Fancy order",
+    payment: {
+      address: {
+        address: "some address",
+        firstName: "Name",
+        lastName: "Surname",
+        comment: "",
       },
+    },
+    delivery: {
+      address: {
+        address: "some address",
+        firstName: "Name",
+        lastName: "Surname",
+        comment: "",
+      },
+    },
+    comments: "Ship fast",
+    statusHistory: [
+      { status: OrderStatus.Sent, timestamp: Date.now(), comment: "New order" },
     ],
-  },
+  }
 ];
